@@ -1,0 +1,57 @@
+@import "styles/partial_includes.scss";
+
+.icon_container__phone {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100%;
+    width: $air--double + $air--half;
+    height: $air--double + $air--half;
+    margin-right: $air;
+
+    svg {
+        width: 18px;
+        height: 18px;
+        opacity: 0.6;
+    }
+
+    &____call {
+        display: none;
+        background-color: $color__primary--xdark;
+
+        &:hover {
+            background-color: $color__primary;
+        }
+    }
+
+    &____hangup {
+        background-color: $color__tertiary;
+    }
+
+    &____open {
+        display: flex;
+    }
+}
+
+.icon_container__chevron {
+    position: relative;
+
+    svg {
+        position: absolute;
+        top: auto;
+        right: $air--quarter;
+        bottom: $air--quarter;
+        left: auto;
+    }
+
+    &____open {
+        svg {
+            transform: rotate(180deg);
+            fill: $color__primary;
+        }
+    }
+}
+
+.icon_container__list_decorator {
+    margin-right: $air;
+}
