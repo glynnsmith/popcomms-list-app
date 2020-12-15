@@ -1,0 +1,96 @@
+@import "styles/partial_includes.scss";
+
+:root {
+    --air-multiplier: 1;
+
+    @include mq($until: tablet) {
+        --air-multiplier: 0.85;
+    }
+
+    @include mq($until: mobile) {
+        --air-multiplier: 0.6;
+    }
+}
+
+html {
+    @include ms-respond(font-size, 0);
+    font-family: $typeface__primary;
+    font-weight: $font-weight-regular;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizelegibility;
+    background-color: $color__secondary--dark;
+}
+
+html,
+body {
+    height: auto;
+    margin: 0;
+    padding: 0;
+}
+
+::selection {
+    background-color: rgba($color__primary, 0.9);
+    color: white;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    font-family: $typeface__primary;
+    line-height: $line-height--header;
+    font-weight: $font-weight-regular;
+    padding: 0;
+    margin: 0;
+    margin-left: -0.1rem;
+    max-width: 42ch;
+}
+
+* + h1,
+* + h2,
+* + h3,
+* + h4 {
+    @include margin-top--list();
+}
+
+h1 {
+    @include ms-respond(font-size, 2);
+}
+
+h2 {
+    @include ms-respond(font-size, 1);
+}
+
+h3 {
+    @include ms-respond(font-size, 0);
+    font-weight: $font-weight-regular;
+}
+
+p {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+address {
+    font-style: normal;
+}
+
+button {
+    border: none;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+button,
+input {
+    &:focus {
+        outline: 1px solid $color__primary--xdark;
+    }
+}

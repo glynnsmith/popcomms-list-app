@@ -1,0 +1,15 @@
+$mq-responsive: true;
+
+$mq-breakpoints: (
+    mobile--small: 320px,
+    mobile: 480px,
+    mobile--large: 652px,
+    tablet--small: 880px,
+    tablet: 1080px,
+    tablet--large: 1304px,
+    desktop--small: 1480px,
+    desktop: 1680px,
+    desktop--large: 1920px,
+);
+
+$mq-show-breakpoints: ();

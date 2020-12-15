@@ -1,0 +1,28 @@
+$air: 1rem;
+
+$air--three-quarters: ($air / 4) * 3;
+$air--two-thirds: ($air / 3) * 2;
+$air--half: $air / 2;
+$air--third: $air / 3;
+$air--quarter: $air / 4;
+$air--sixth: $air / 6;
+$air--eighth: $air / 8;
+$air--tenth: $air / 10;
+$air--twelfth: $air / 12;
+$air--sixteenth: $air / 16;
+
+$air--plus-quarter: $air + ($air / 4);
+$air--plus-third: $air + ($air / 3);
+$air--plus-half: $air + ($air / 2);
+$air--plus-two-thirds: $air + (($air / 3) * 2);
+$air--plus-three-quarters: $air + (($air / 4) * 3);
+
+$air--double: $air * 2;
+$air--triple: $air * 3;
+$air--quadruple: $air * 4;
+$air--quintuple: $air * 5;
+$air--sextuple: $air * 6;
+$air--septuple: $air * 7;
+$air--octuple: $air * 8;
+
+$width__page: 1200px;

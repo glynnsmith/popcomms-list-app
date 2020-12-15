@@ -1,0 +1,28 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap");
+
+$typeface__primary: "Roboto", "Verdana", sans-serif;
+
+$font-weight-light: 300;
+$font-weight-regular: 400;
+$font-weight-medium: 500;
+$font-weight-semi-bold: 600;
+$font-weight-bold: 700;
+
+$line-height: 1.6;
+$line-height--header: 0.95;
+
+$modularscale: (
+    base: 16px,
+    ratio: 1.11,
+    320px: (
+        ratio: 1.11,
+    ),
+    900px: (
+        base: 20px,
+        ratio: 1.14,
+    ),
+    1300px: (
+        base: 22px,
+        ratio: 1.16,
+    ),
+);
