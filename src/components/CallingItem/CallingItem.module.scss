@@ -1,0 +1,39 @@
+@import "styles/partial_includes.scss";
+
+.calling_item {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+
+    &__image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    &__secondary {
+        position: relative;
+        display: flex;
+        align-items: center;
+        padding: $air--quadruple $air--triple;
+        text-shadow: 0 1px 1px rgba(black, 0.85);
+        color: white;
+    }
+
+    &__details {
+        line-height: $line-height;
+        &_name {
+            @include ms-respond(font-size, 3);
+        }
+
+        &_status {
+            @include ms-respond(font-size, -2);
+        }
+    }
+}

@@ -1,9 +1,12 @@
 import React from "react";
+import CallingItem from "components/CallingItem/CallingItem";
 
-class CallPage extends React.Component {
-    render() {
-        return <div>Call Page.</div>;
-    }
+function CallPage() {
+    return (
+        <>
+            <CallingItem />
+        </>
+    );
 }
 
 export default CallPage;
