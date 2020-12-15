@@ -1,0 +1,64 @@
+@import "styles/partial_includes.scss";
+
+.filter {
+    display: flex;
+
+    &__button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: none;
+
+        &____open {
+            svg {
+                fill: white;
+            }
+        }
+    }
+
+    &__sort,
+    &__input {
+        display: none;
+        margin-top: $air;
+        width: 100%;
+
+        &____open {
+            display: flex;
+        }
+
+        &____closed {
+            display: none;
+        }
+    }
+
+    &__input {
+        @include ms-respond(font-size, -2);
+        // font-weight: $font-weight-medium;
+        padding: $air--two-thirds;
+        border: none;
+        color: $color__secondary--xdark;
+
+        &::placeholder {
+            color: rgba($color__secondary--xdark, 0.4);
+        }
+    }
+
+    &__sort {
+        @include ms-respond(font-size, -3);
+        font-weight: $font-weight-medium;
+        flex-direction: row;
+        justify-content: center;
+
+        &_button {
+            color: white;
+            border-radius: $air--third;
+            padding: $air--half $air--two-thirds;
+
+            &:active,
+            &:focus {
+                background-color: $color__primary--dark;
+                outline: none;
+            }
+        }
+    }
+}

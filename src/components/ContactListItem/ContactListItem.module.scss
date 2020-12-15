@@ -1,0 +1,101 @@
+@import "styles/partial_includes.scss";
+
+.contact_list_item {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-color: $color__secondary;
+    box-shadow: 0px 2px 2px rgba(black, 0.24), 0px 0px 2px rgba(black, 0.12);
+    color: $color__secondary--xdark;
+
+    & + & {
+        margin-top: $air--half;
+    }
+
+    &__primary {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        &_name {
+            @include ms-respond(font-size, 0);
+        }
+
+        &_location {
+            @include ms-respond(font-size, -3);
+        }
+    }
+
+    &__primary_details {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: $air--two-thirds;
+    }
+
+    &__secondary {
+        display: none;
+        padding: $air;
+        @include ms-respond(font-size, -3);
+        line-height: $line-height;
+    }
+
+    &__secondary_details {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        padding: $air--two-thirds;
+    }
+
+    &__secondary_details_list {
+        border-left: 1px solid $color__secondary--xdark;
+        @include list-delister;
+        padding-left: $air;
+
+        & + & {
+            margin-top: $air--plus-half;
+        }
+    }
+}
+
+.open {
+    .contact_list_item__primary {
+        color: white;
+        position: relative;
+        text-shadow: 0 1px 1px rgba(black, 0.85);
+
+        &_details {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            justify-content: flex-start;
+            align-items: flex-end;
+            padding: $air;
+        }
+    }
+
+    .contact_list_item__image_container {
+        position: relative;
+        padding-bottom: 65%;
+        width: 100%;
+        height: 0;
+        overflow: hidden;
+
+        img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    .contact_list_item__secondary {
+        display: block;
+    }
+}

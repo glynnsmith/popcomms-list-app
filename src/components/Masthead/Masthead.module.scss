@@ -1,0 +1,35 @@
+@import "styles/partial_includes.scss";
+
+.masthead {
+    width: 100%;
+    padding: $air--double 0 $air--half;
+    background-color: $color__secondary--dark;
+    box-shadow: 0 4px 4px rgba(black, 0.24), 0 0 4px rgba(black, 0.12);
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1;
+
+    &____open {
+        background-color: $color__primary;
+    }
+
+    &__navigation {
+        width: 100%;
+        max-width: $width__page;
+        margin: 0 auto;
+        padding: 0 $air--two-thirds;
+    }
+
+    &__primary {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    &__spacer {
+        width: 100%;
+    }
+}

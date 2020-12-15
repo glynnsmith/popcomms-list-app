@@ -1,0 +1,9 @@
+@import "styles/partial_includes.scss";
+
+.contact_list {
+    @include list_delister;
+    width: 100%;
+    max-width: $width__page;
+    margin: 0 auto;
+    padding: $air $air--two-thirds $air--two-thirds;
+}
