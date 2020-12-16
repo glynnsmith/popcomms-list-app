@@ -13,6 +13,7 @@ function CallingItem() {
                 src={contact.picture.large}
                 alt={`${contact.name.first} ${contact.name.last}`}
             />
+            <div className={styles.calling_item__image_overlay}></div>
 
             <div className={styles.calling_item__secondary}>
                 <Link
