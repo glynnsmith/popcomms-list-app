@@ -1,8 +1,10 @@
 # PopComms List App
 
-This repo contains my effort of building a technical test for a front-end developer role at PopComms. It is based up the design and prototype found [here](https://www.figma.com/file/p2Dp6hysKfCAGs2ylnyRUG/Front-end-Recruitment-Task-Mid?node-id=134%3A0).
-
 You can view the built project [here](https://popcomms-list-app.vercel.app/).
+
+I've also begun a cheeky list of post-test [issues](https://github.com/glynnsmith/popcomms-list-app/issues), the fixing of which are being chucked onto a second [branch](https://github.com/glynnsmith/popcomms-list-app/tree/post-release-fixes). The build of this branch can be found [here](https://popcomms-list-app-git-post-release-fixes.glynnsmith.vercel.app/).
+
+This repo contains my effort of building a technical test for a front-end developer role at PopComms. It is based up the design and prototype found [here](https://www.figma.com/file/p2Dp6hysKfCAGs2ylnyRUG/Front-end-Recruitment-Task-Mid?node-id=134%3A0).
 
 ## Installation
 
