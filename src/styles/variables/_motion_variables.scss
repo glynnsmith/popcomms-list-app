@@ -1,8 +1,8 @@
-$time: 180ms;
-$time__quick: ($time / 1.5);
-$time__xquick: ($time / 2);
+$time: 360ms;
+$time__xquick: ($time / 4);
+$time__quick: ($time / 2);
 $time__slow: ($time * 2);
-$time__xslow: ($time * 3);
+$time__xslow: ($time * 4);
 
 $ease-in--back: cubic-bezier(0.6, -0.28, 0.735, 0.045);
 $ease-in--circ: cubic-bezier(0.6, 0.04, 0.98, 0.335);

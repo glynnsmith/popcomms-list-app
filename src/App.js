@@ -3,6 +3,8 @@ import Async from "react-async";
 import ListPage from "pages/ListPage";
 import CallPage from "pages/CallPage";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import ResponseLoading from "components/Response/ResponseLoading";
+import ResponseRejected from "components/Response/ResponseRejected";
 
 // Our data endpoint, limited to the data we need
 const endPoint =
@@ -19,6 +21,7 @@ class App extends React.Component {
         };
 
         // Binding this to this, so our functions affect the correct objects
+        this.refreshPage = this.refreshPage.bind(this);
         this.storeContacts = this.storeContacts.bind(this);
         this.fetchContacts = this.fetchContacts.bind(this);
         this.sortContactsByFirstName = this.sortContactsByFirstName.bind(this);
@@ -26,6 +29,10 @@ class App extends React.Component {
         this.sortContactsByCountry = this.sortContactsByCountry.bind(this);
         this.handleFilterInputChange = this.handleFilterInputChange.bind(this);
     }
+
+    refreshPage = () => {
+        window.location.reload();
+    };
 
     fetchContacts = () => {
         // Asynchronously attempts to fetch data from the json endpoint
@@ -137,7 +144,7 @@ class App extends React.Component {
                 <Async promiseFn={this.storeContacts}>
                     {/* Whilst asynchronous function is loading: */}
                     <Async.Loading>
-                        <h1>Fetching contact data...</h1>
+                        <ResponseLoading />
                     </Async.Loading>
 
                     {/* If asynchronous function is successful: */}
@@ -179,9 +186,12 @@ class App extends React.Component {
 
                     {/* If asyncronous function fails: */}
                     <Async.Rejected>
-                        {(error) =>
-                            `There was an error fetching the required contact list data: ${error} - fetching data from this server can sometimes trigger a CORS error`
-                        }
+                        {(error) => (
+                            <ResponseRejected
+                                refresh={this.refreshPage}
+                                error={error.message}
+                            />
+                        )}
                     </Async.Rejected>
                 </Async>
             </main>

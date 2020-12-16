@@ -1,0 +1,12 @@
+@mixin transition(
+    $transition-time: $time__slow,
+    $ease-type: $ease-in-out--quart
+) {
+    transition: color $transition-time $ease-type,
+        background-color $transition-time $ease-type,
+        fill $transition-time $ease-type, opacity $transition-time $ease-type,
+        top $transition-time $ease-type, transform $transition-time $ease-type,
+        box-shadow $transition-time $ease-type;
+    will-change: color, background-color, fill, opacity, top, transform,
+        box-shadow;
+}

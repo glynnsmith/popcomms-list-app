@@ -16,6 +16,7 @@ html {
     @include ms-respond(font-size, 0);
     font-family: $typeface__primary;
     font-weight: $font-weight-regular;
+    line-height: $line-height;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizelegibility;
@@ -70,6 +71,10 @@ h3 {
 p {
     margin: 0;
     padding: 0;
+
+    a {
+        @include text_link;
+    }
 }
 
 a {

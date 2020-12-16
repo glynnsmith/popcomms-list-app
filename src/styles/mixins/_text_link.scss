@@ -1,0 +1,21 @@
+@mixin text_link {
+    font-weight: $font-weight-medium;
+    padding-bottom: 0.065em;
+
+    &:link,
+    &:visited {
+        color: $color__primary--xdark;
+        box-shadow: inset 0 -0.1em rgba($color__primary--xdark, 0.5);
+        @include transition();
+    }
+
+    &:hover {
+        color: $color__primary--xdark;
+        box-shadow: inset 0 -0.2em $color__primary--xdark;
+        @include transition();
+    }
+
+    &:focus {
+        outline: 1px solid $color__primary--xdark;
+    }
+}
