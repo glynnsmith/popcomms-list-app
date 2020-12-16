@@ -39,9 +39,12 @@ class ContactListItem extends React.Component {
                 <section className={styles.contact_list_item__primary}>
                     <div className={styles.contact_list_item__image_container}>
                         <img
-                            src={contact.picture.medium}
+                            src={contact.picture.large}
                             alt={`${contact.name.first} ${contact.name.last}`}
                         />
+                        <div
+                            className={styles.contact_list_item__image_overlay}
+                        ></div>
                     </div>
                     <div className={styles.contact_list_item__primary_details}>
                         <Link
