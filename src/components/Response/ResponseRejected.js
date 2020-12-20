@@ -10,7 +10,7 @@ class ResponseRejected extends React.Component {
                 <p>
                     There was an error fetching the required contact list data.
                 </p>
-                <pre>Error: {error}.</pre>
+                <code>Error: {error}.</code>
                 <p>
                     Fetching data from this server can sometimes trigger a
                     cross-origin resource sharing (CORS) error - more details
