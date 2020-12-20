@@ -33,12 +33,14 @@
 
     &__input {
         @include ms-respond(font-size, -2);
-        padding: $air--two-thirds;
+        padding: $air--half $air--two-thirds;
         border: none;
+        border-radius: $air--eighth;
         color: $color__secondary--xdark;
+        box-shadow: 0 0 2px rgba(black, 0.12);
 
         &::placeholder {
-            color: rgba($color__secondary--xdark, 0.4);
+            color: rgba($color__secondary--xdark, 0.5);
         }
     }
 
@@ -51,7 +53,7 @@
         &_button {
             color: white;
             border-radius: $air--third;
-            padding: $air--half $air--two-thirds;
+            padding: $air--quarter $air--two-thirds;
 
             &:active,
             &:focus {
