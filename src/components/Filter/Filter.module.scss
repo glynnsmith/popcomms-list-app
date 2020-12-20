@@ -55,8 +55,7 @@
             border-radius: $air--third;
             padding: $air--quarter $air--two-thirds;
 
-            &:active,
-            &:focus {
+            &____active {
                 background-color: $color__primary--dark;
                 outline: none;
             }

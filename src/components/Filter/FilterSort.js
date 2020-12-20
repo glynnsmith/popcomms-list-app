@@ -8,6 +8,7 @@ class FilterSort extends React.Component {
             sortContactsByLastName,
             sortContactsByCountry,
             sortIsOpen,
+            contactsSortedBy,
         } = this.props;
 
         return (
@@ -19,19 +20,34 @@ class FilterSort extends React.Component {
                 }`}
             >
                 <button
-                    className={`${styles.filter__sort_button}`}
+                    className={`${styles.filter__sort_button}
+                    ${
+                        contactsSortedBy === "name"
+                            ? styles.filter__sort_button____active
+                            : ""
+                    }`}
                     onClick={sortContactsByFirstName}
                 >
                     Name
                 </button>
                 <button
-                    className={`${styles.filter__sort_button}`}
+                    className={`${styles.filter__sort_button}
+                    ${
+                        contactsSortedBy === "surname"
+                            ? styles.filter__sort_button____active
+                            : ""
+                    }`}
                     onClick={sortContactsByLastName}
                 >
                     Surname
                 </button>
                 <button
-                    className={`${styles.filter__sort_button}`}
+                    className={`${styles.filter__sort_button}
+                    ${
+                        contactsSortedBy === "country"
+                            ? styles.filter__sort_button____active
+                            : ""
+                    }`}
                     onClick={sortContactsByCountry}
                 >
                     Country

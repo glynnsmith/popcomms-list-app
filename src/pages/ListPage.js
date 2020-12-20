@@ -12,19 +12,21 @@ class ListPage extends React.Component {
             handleFilterInputChange,
             checkIsOpen,
             toggleOpen,
+            contactsSortedBy,
         } = this.props;
 
         return (
             <>
                 <Masthead
+                    contactsSortedBy={contactsSortedBy}
+                    handleFilterInputChange={handleFilterInputChange}
                     sortContactsByFirstName={sortContactsByFirstName}
                     sortContactsByLastName={sortContactsByLastName}
                     sortContactsByCountry={sortContactsByCountry}
-                    handleFilterInputChange={handleFilterInputChange}
                 />
                 <ContactList
-                    contactsServed={contactsServed}
                     checkIsOpen={checkIsOpen}
+                    contactsServed={contactsServed}
                     toggleOpen={toggleOpen}
                 />
             </>

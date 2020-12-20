@@ -65,6 +65,7 @@ class Masthead extends React.Component {
             sortContactsByLastName,
             sortContactsByCountry,
             handleFilterInputChange,
+            contactsSortedBy,
         } = this.props;
 
         const { filterIsOpen, sortIsOpen } = this.state;
@@ -100,10 +101,11 @@ class Masthead extends React.Component {
                             handleFilterInputChange={handleFilterInputChange}
                         />
                         <FilterSort
-                            sortIsOpen={sortIsOpen}
+                            contactsSortedBy={contactsSortedBy}
                             sortContactsByFirstName={sortContactsByFirstName}
                             sortContactsByLastName={sortContactsByLastName}
                             sortContactsByCountry={sortContactsByCountry}
+                            sortIsOpen={sortIsOpen}
                         />
                     </nav>
                 </header>

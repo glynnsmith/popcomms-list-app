@@ -4,15 +4,15 @@ import styles from "components/ContactList/ContactList.module.scss";
 
 class ContactList extends React.Component {
     render() {
-        const { contactsServed, checkIsOpen, toggleOpen } = this.props;
+        const { checkIsOpen, contactsServed, toggleOpen } = this.props;
 
         return (
             <ul className={styles.contact_list}>
                 {contactsServed.map((contact, index) => (
                     <ContactListItem
+                        checkIsOpen={checkIsOpen}
                         contact={contact}
                         key={index}
-                        checkIsOpen={checkIsOpen}
                         toggleOpen={toggleOpen}
                     />
                 ))}

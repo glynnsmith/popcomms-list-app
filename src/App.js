@@ -19,6 +19,7 @@ class App extends React.Component {
             contactsServed: [],
             error: null,
             isLoading: false,
+            contactsSortedBy: null,
         };
 
         // Binding this to this, so our functions affect the correct objects
@@ -144,6 +145,7 @@ class App extends React.Component {
             contactsServed: this.state.contactsCached.sort((a, b) =>
                 a.name.first.localeCompare(b.name.first)
             ),
+            contactsSortedBy: "name",
         });
     };
 
@@ -153,6 +155,7 @@ class App extends React.Component {
             contactsServed: this.state.contactsCached.sort((a, b) =>
                 a.name.last.localeCompare(b.name.last)
             ),
+            contactsSortedBy: "surname",
         });
     };
 
@@ -162,6 +165,7 @@ class App extends React.Component {
             contactsServed: this.state.contactsCached.sort((a, b) =>
                 a.location.country.localeCompare(b.location.country)
             ),
+            contactsSortedBy: "country",
         });
     };
 
@@ -237,6 +241,9 @@ class App extends React.Component {
                                             <ListPage
                                                 contactsServed={
                                                     this.state.contactsServed
+                                                }
+                                                contactsSortedBy={
+                                                    this.state.contactsSortedBy
                                                 }
                                                 getActiveContactData={
                                                     this.getActiveContactData
