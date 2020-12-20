@@ -92,7 +92,6 @@ class App extends React.Component {
     };
 
     handleFilterInputChange = (event) => {
-        console.log("Hi");
         // Variable to hold the original version of the contact list
         let currentContacts = this.state.contactsServed;
 
