@@ -6,6 +6,7 @@ import iconStyles from "icons/icons.module.scss";
 
 function CallingItem() {
     const contact = useLocation().state.contactData;
+
     return (
         <div className={styles.calling_item}>
             <img

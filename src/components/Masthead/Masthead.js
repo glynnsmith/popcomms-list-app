@@ -17,7 +17,6 @@ class Masthead extends React.Component {
         };
 
         this.headerRef = React.createRef();
-
         this.toggleFilter = this.toggleFilter.bind(this);
         this.toggleSort = this.toggleSort.bind(this);
     }
@@ -73,8 +72,6 @@ class Masthead extends React.Component {
         const headerSpacerStyle = {
             height: this.state.headerHeight,
         };
-
-        // const height = get;
 
         return (
             <>
