@@ -67,7 +67,7 @@ class App extends React.Component {
             if (contact.isOpen) {
                 /// ...and puts them into the collection array
                 openContacts.push(contact);
-    }
+            }
         });
 
         // If there are any open contacts collected...
@@ -212,7 +212,11 @@ class App extends React.Component {
 
     render() {
         return (
-            <main className="container">
+            <main
+                className={`container ${
+                    this.state.aContactIsOpen ? "container____open" : ""
+                }`}
+            >
                 {/* Asynchronously load a function */}
                 <Async promiseFn={this.storeContacts}>
                     {/* Whilst asynchronous function is loading: */}

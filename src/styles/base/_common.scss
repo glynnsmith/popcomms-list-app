@@ -30,6 +30,14 @@ body {
     padding: 0;
 }
 
+.container {
+    min-height: 100vh;
+
+    &____open {
+        background-color: $color__primary;
+    }
+}
+
 ::selection {
     background-color: rgba($color__primary, 0.9);
     color: white;
