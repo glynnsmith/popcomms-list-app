@@ -3,7 +3,7 @@
 .contact_list {
     @include list_delister;
     width: 100%;
-    max-width: $width__page;
+    min-height: 100%;
     margin: 0 auto;
     padding: $air $air--two-thirds $air--two-thirds;
 }

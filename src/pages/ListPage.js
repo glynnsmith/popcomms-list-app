@@ -10,7 +10,10 @@ class ListPage extends React.Component {
             sortContactsByLastName,
             sortContactsByCountry,
             handleFilterInputChange,
+            checkIsOpen,
+            toggleOpen,
         } = this.props;
+
         return (
             <>
                 <Masthead
@@ -19,7 +22,11 @@ class ListPage extends React.Component {
                     sortContactsByCountry={sortContactsByCountry}
                     handleFilterInputChange={handleFilterInputChange}
                 />
-                <ContactList contactsServed={contactsServed} />
+                <ContactList
+                    contactsServed={contactsServed}
+                    checkIsOpen={checkIsOpen}
+                    toggleOpen={toggleOpen}
+                />
             </>
         );
     }

@@ -11,30 +11,32 @@ class ContactListItem extends React.Component {
     constructor(props) {
         super(props);
 
-        // Set initial state of this component to closed
-        this.state = {
-            componentIsOpen: false,
-        };
-
         // Binding this to this, so our functions affect the correct objects
         this.handleContactItemClick = this.handleContactItemClick.bind(this);
+        this.stopPropagation = this.stopPropagation.bind(this);
     }
 
     handleContactItemClick = () => {
-        // Set open state of this component
-        this.setState({ componentIsOpen: !this.state.componentIsOpen });
+        const { contact, toggleOpen, checkIsOpen } = this.props;
+        toggleOpen(contact);
+        checkIsOpen();
+    };
+
+    // Stops the propogation for child elements of events to assigned to parents
+    // E.G. Used in this component to ignore the toggling of the item when clicking the call link within.
+    stopPropagation = (e) => {
+        e.stopPropagation();
     };
 
     render() {
-        const contact = this.props.contact;
+        const { contact } = this.props;
 
         return (
             <li
-                key={contact.key}
                 onClick={this.handleContactItemClick}
-                className={`${styles.contact_list_item} ${
-                    this.state.componentIsOpen ? `${styles.open}` : "closed"
-                }`}
+                key={contact.key}
+                className={`${styles.contact_list_item}
+                ${contact.isOpen ? `${styles.open}` : "closed"}`}
             >
                 <section className={styles.contact_list_item__primary}>
                     <div className={styles.contact_list_item__image_container}>
@@ -48,6 +50,7 @@ class ContactListItem extends React.Component {
                     </div>
                     <div className={styles.contact_list_item__primary_details}>
                         <Link
+                            onClick={this.stopPropagation}
                             to={{
                                 pathname: "/call",
                                 state: { contactData: contact },
@@ -55,7 +58,7 @@ class ContactListItem extends React.Component {
                             className={`${iconStyles.icon_container__phone} ${
                                 iconStyles.icon_container__phone____call
                             } ${
-                                this.state.componentIsOpen
+                                contact.isOpen
                                     ? `${iconStyles.icon_container__phone____open}`
                                     : "closed"
                             }`}
@@ -122,7 +125,7 @@ class ContactListItem extends React.Component {
                 </section>
                 <span
                     className={`${iconStyles.icon_container__chevron} ${
-                        this.state.componentIsOpen
+                        contact.isOpen
                             ? `${iconStyles.icon_container__chevron____open}`
                             : "closed"
                     }`}

@@ -4,9 +4,18 @@
     display: flex;
     flex-direction: column;
     width: 100%;
+    max-width: $width__page;
+    margin-left: auto;
+    margin-right: auto;
     background-color: $color__secondary;
     box-shadow: 0px 2px 2px rgba(black, 0.24), 0px 0px 2px rgba(black, 0.12);
     color: $color__secondary--xdark;
+    border-radius: $air--eighth;
+    overflow: hidden;
+
+    &:hover {
+        cursor: pointer;
+    }
 
     & + & {
         margin-top: $air--half;

@@ -14,21 +14,92 @@ class App extends React.Component {
     constructor() {
         super();
         this.state = {
+            aContactIsOpen: false,
             contactsCached: [],
             contactsServed: [],
-            isLoading: false,
             error: null,
+            isLoading: false,
         };
 
         // Binding this to this, so our functions affect the correct objects
         this.refreshPage = this.refreshPage.bind(this);
-        this.storeContacts = this.storeContacts.bind(this);
         this.fetchContacts = this.fetchContacts.bind(this);
+        this.storeContacts = this.storeContacts.bind(this);
         this.sortContactsByFirstName = this.sortContactsByFirstName.bind(this);
         this.sortContactsByLastName = this.sortContactsByLastName.bind(this);
         this.sortContactsByCountry = this.sortContactsByCountry.bind(this);
         this.handleFilterInputChange = this.handleFilterInputChange.bind(this);
+        this.addNeededPropertiesToContactsCached = this.addNeededPropertiesToContactsCached.bind(
+            this
+        );
+        this.checkIsOpen = this.checkIsOpen.bind(this);
+        this.toggleOpen = this.toggleOpen.bind(this);
     }
+
+    addNeededPropertiesToContactsCached = () => {
+        // Grabs contacts list from cache
+        const oldContacts = this.state.contactsCached;
+        // Creates a collection array
+        let newContacts = [];
+
+        // For every item in the cached contacts list...
+        for (let i = 0; i < oldContacts.length; i++) {
+            // ...adds both an isOpen and id key/value to all items...
+            // ...and puts them into the collection array
+            newContacts = [
+                (oldContacts[i].isOpen = false),
+                (oldContacts[i].id = i),
+            ];
+        }
+
+        return newContacts;
+    };
+
+    checkIsOpen = () => {
+        // Grabs contacts from served list
+        const contacts = this.state.contactsServed;
+        // Creates a collection array
+        let openContacts = [];
+
+        // For each item in our served contacts list...
+        contacts.forEach((contact) => {
+            // ...checks to see if it's toggled open...
+            if (contact.isOpen) {
+                /// ...and puts them into the collection array
+                openContacts.push(contact);
+    }
+        });
+
+        // If there are any open contacts collected...
+        if (openContacts.length > 0) {
+            // ...update state value respectively
+            return this.setState({ aContactIsOpen: true });
+        } else {
+            return this.setState({ aContactIsOpen: false });
+        }
+    };
+
+    toggleOpen = (contact) => {
+        // Grabs contacts from served list
+        let oldContacts = this.state.contactsServed;
+
+        // For every item in the cached contacts list...
+        for (let i = 0; i < oldContacts.length; i++) {
+            // ...if we find the contact list item clicked matches one in our served list...
+            if (oldContacts[i].id === contact.id) {
+                // ...and if we find that item is open/expanded...
+                if (oldContacts[i].isOpen) {
+                    // ...toggle the element closed...
+                    const isOpen = (oldContacts[i].isOpen = false);
+                    this.setState({ isOpen });
+                } else {
+                    // ...if we find it's not open, toggle it to open
+                    const isOpen = (oldContacts[i].isOpen = true);
+                    this.setState({ isOpen });
+                }
+            }
+        }
+    };
 
     refreshPage = () => {
         window.location.reload();
@@ -56,6 +127,9 @@ class App extends React.Component {
                     this.setState({
                         contactsCached: data.results,
                     });
+                })
+                .then(() => {
+                    this.addNeededPropertiesToContactsCached();
                 })
                 // Sorts cached data by first name alphabetically, then puts new data into state for use
                 .then(() => {
@@ -175,6 +249,8 @@ class App extends React.Component {
                                                 handleFilterInputChange={
                                                     this.handleFilterInputChange
                                                 }
+                                                checkIsOpen={this.checkIsOpen}
+                                                toggleOpen={this.toggleOpen}
                                             />
                                         </Route>
                                     </Switch>
