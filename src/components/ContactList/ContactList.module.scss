@@ -6,4 +6,14 @@
     min-height: 100%;
     margin: 0 auto;
     padding: $air $air--two-thirds $air--two-thirds;
+
+    &__no_item {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        max-width: $width__page;
+        padding: 0 $air;
+        margin: 0 auto;
+    }
 }
